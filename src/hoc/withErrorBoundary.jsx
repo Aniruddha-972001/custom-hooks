@@ -1,5 +1,7 @@
 import React from "react";
 
+// React error boundaries currently require class component lifecycle methods.
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -9,16 +11,19 @@ class ErrorBoundary extends React.Component {
     };
   }
 
+//   This runs when a child component throws an error.It updates the error boundary state:
+//   Once hasError becomes true, the fallback UI is shown.
   static getDerivedStateFromError() {
     return {
       hasError: true,
     };
   }
 
+//   This runs after an error is caught.It is commonly used for logging:
   componentDidCatch(error, errorInfo) {
     console.error("Error caught by boundary:", error, errorInfo);
   }
-
+//   The render method decides what UI to show.
   render() {
     if (this.state.hasError) {
       return (
