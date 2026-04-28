@@ -123,4 +123,16 @@ Custom hooks reuse logic inside a component.HOCs reuse logic by wrapping a compo
 
 ### Purpose
 
+`withAuth` protects a component based on login status.
+If the user is logged in, it renders the protected component.
+If not, it shows an access denied message.
+
+## withErrorBoundary HOC
+
+### Purpose
+
+`withErrorBoundary` protects the app from component-level crashes.
+
+If a wrapped component crashes, the error boundary shows fallback UI instead of crashing the whole app.
+
 
